@@ -39,6 +39,8 @@ class departureController
         $template = $twig->load('templates/default.html');
         global $currentTime;
 
+
+
         echo $template->render( ['departures' => $this->findDepartures($currentTime)]);
     }
 
@@ -73,12 +75,14 @@ class departureController
         $domDoc->loadHTML($rawXmlSting, LIBXML_NOERROR);
         $domDoc->saveHTML();
 
+        $this->check();
+
         return $domDoc;
     }
 
     private function getDeparturesFromXmlFile()
     {
-        $rawXmlSting = file_get_contents('packages/departures/resources/Departures.html');
+        $rawXmlSting = file_get_contents('../packages/departures/resources/Departures.html');
         $xml = simplexml_load_string($rawXmlSting);
         $json = json_encode($xml);
         $array = json_decode($json, TRUE);
@@ -88,7 +92,7 @@ class departureController
 
     private function saveToFile($object)
     {
-        $object->save('packages/departures/resources/Departures.html');
+        $object->save('../packages/departures/resources/Departures.html');
     }
 
     private function saveDeparturesToDb($data)
