@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    {{ include('partials/header.html') }}
+    {{ include('partials/script.html') }}
+
+<body>
+<h1>Abfahrten Mollwitzstr ab <?php echo $currentTime?></h1>
+<div class="table pull-left">
+<table>
+    <tr>
+        <th> Time </th>
+        <th> Line </th>
+        <th> Direction </th>
+    </tr>
+    {% for departure in departures %}
+    <tr>
+        <td> {{ departure.2 }} </td>
+        <td> {{ departure.3 }} </td>
+        <td> {{ departure.4 }} </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+    "name": "tobizzlelol/departures",
+    "description": "shows kvb departures",
+    "type": "plugin",
+    "require": {
+        "twig/twig": "^3.6",
+        "ext-simplexml": "*",
+        "ext-dom": "*",
+        "ext-libxml": "*"
+    },
+    "version": "0.0.1",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tobizzlelol\\Departures\\": "src/"
+        }
+    },
+    "bin": [
+        "bin/getDeparturesFromWeb"
+    ],
+    "authors": [
+        {
+            "name": "Tobias Höfken",
+            "email": "Tobizzzzlelol@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
